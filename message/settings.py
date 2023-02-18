@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "True") == "True"
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
@@ -134,3 +134,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+WHATSAPP_URL = 'https://graph.facebook.com/v15.0/115329878106810/messages'
+
+WHATSAPP_TOKEN = 'Bearer EAAGZBQW1W3U8BAIrnqv1Vt9tVq38CekOVpxQHrKjCszw36aZAjeipIWtENbhLrOcZBkQ1NL0yf7iljW5DdjrZCPE9mZCmP1ksXanD72FSZAvAn7czxXzSZCiHZAl46CZCK9TKgQkwibA1NgCFsri2ITQ3MxRP39Fz8MBQWlrG7YAzZCGLxokPX486zJ7JEOjuUYVl9RZCC0oZCvZBWC8hbPkKbMaZB'
