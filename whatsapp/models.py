@@ -8,7 +8,7 @@ import os
 # Create your models here.
 
 class Profile(models.Model):
-    User = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     phoneNumber = models.CharField(null=True, blank=True, max_length=100)
     phoneId = models.CharField(null=True, blank=True, max_length=200)
 

@@ -1,5 +1,8 @@
 from django.conf import settings
+from django.contrib.auth.models import User
+from .models import *
 import requests
+
 
 def sendWhatsAppMessage(phoneNumber, message):
     headers = {"Authorization": settings.WHATSAPP_TOKEN}
@@ -18,3 +21,39 @@ def sendWhatsAppMessage(phoneNumber, message):
 # message = "Hello There!!!!!!"
 
 # sendWhatsAppMessage(phoneNumber, message)
+def handleWhatsAppChat(fromId, profileName, phoneId, text):
+    try:
+        chat = InstructionContext.objects.get(profile__phoneNumber=fromId)
+    except:
+        if User.objects.filter(username=phoneId).exists():
+            user = User.objects.get(username=phoneId)
+            user_profile = user.profile
+
+        else:        
+        ##Creating a user
+            user = User.objects.create_user(
+            username=phoneId,
+            email="123123@gmail.com",
+            password="wowowow",
+            first_name=profileName,
+            )
+
+        #Create a profile
+            user_profile = Profile.objects.create(
+            user=user,
+            phoneNumber=fromId,
+            phoneId=phoneId
+            )
+
+        #Create a chat session
+        chat = InstructionContext.objects.create(
+        profile=user_profile
+        )
+
+        message = "Welcome to AI \n Hello"
+        sendWhatsAppMessage(fromId, message)
+
+    chat.instruction = text
+    chat.save()
+
+
