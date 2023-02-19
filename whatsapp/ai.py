@@ -14,8 +14,8 @@ def startPrompt(instruction):
     )
 
     if 'choices' in response:
-        if len(response['choices'])>0:
-            answer = response['choices'][0]['text'].replace('\n', '<br/>')
+        if len(response['choices'])>=0:
+            answer = response['choices'][0]['text']
             return answer
         else:
             return ''
