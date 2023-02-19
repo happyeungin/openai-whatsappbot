@@ -7,7 +7,8 @@ def startPrompt(instruction):
 
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt="{}".format(instruction),
+        # prompt="{}".format(instruction),
+        prompt=instruction,
         temperature=0.7,
         max_tokens=300,
         n=1

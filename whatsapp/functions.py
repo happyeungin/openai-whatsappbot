@@ -54,8 +54,8 @@ def handleWhatsAppChat(fromId, profileName, phoneId, text):
         message = "Welcome to AI \n Hello"
         sendWhatsAppMessage(fromId, message)
 
-    # chat.instruction = text
-    # chat.save()
+    chat.instruction = text
+    chat.save()
     message = startPrompt(text)
     sendWhatsAppMessage(fromId, message)
 
