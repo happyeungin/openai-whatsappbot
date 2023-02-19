@@ -51,7 +51,7 @@ def handleWhatsAppChat(fromId, profileName, phoneId, text):
         profile=user_profile
         )
 
-        message = "Welcome to AI \n Hello"
+        message = "Welcome to this answer bot😃. Please feel free to ask me any questions!"
         sendWhatsAppMessage(fromId, message)
 
     chat.instruction = text
