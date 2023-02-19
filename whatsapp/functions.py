@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib.auth.models import User
 from .models import *
+from .ai import *
 import requests
 
 
@@ -55,5 +56,8 @@ def handleWhatsAppChat(fromId, profileName, phoneId, text):
 
     chat.instruction = text
     chat.save()
+    message = startPrompt(text)
+    sendWhatsAppMessage(fromId, message)
+
 
 
