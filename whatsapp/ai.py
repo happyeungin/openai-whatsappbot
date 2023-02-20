@@ -7,7 +7,8 @@ def startPrompt(instruction):
 
     response = openai.Completion.create(
         model="text-curie-001",
-        prompt="Reply(maximum 300 characters) in the language of the context.# Context:{} #".format(instruction),
+        # prompt="Reply(maximum 300 characters) in the language of the context.# Context:{} #".format(instruction),
+        prompt=instruction,
         # prompt=instruction,
         temperature=0.7,
         max_tokens=600,
