@@ -7,10 +7,10 @@ def startPrompt(instruction):
 
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt="Reply in the language of the context.# Context:{} #".format(instruction),
+        prompt="Reply(maximum 200 characters) in the language of the context.# Context:{} #".format(instruction),
         # prompt=instruction,
         temperature=0.7,
-        max_tokens=100,
+        max_tokens=300,
         n=1
     )
 
