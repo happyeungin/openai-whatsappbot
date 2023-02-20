@@ -7,7 +7,7 @@ def startPrompt(instruction):
 
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt="Reply in a funny sentence.# Context:{} #".format(instruction),
+        prompt="Chat with me.# Context:{} #".format(instruction),
         # prompt=instruction,
         temperature=0.7,
         max_tokens=100,

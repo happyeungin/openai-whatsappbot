@@ -54,10 +54,19 @@ def handleWhatsAppChat(fromId, profileName, phoneId, text):
         message = "Welcome to this answer bot😃. Please feel free to ask me any questions!"
         sendWhatsAppMessage(fromId, message)
 
-    chat.instruction = text
-    chat.save()
-    message = startPrompt(chat.instruction)
-    sendWhatsAppMessage(fromId, message)
+    # chat.instruction = chat.instruction + text
+    if len(chat.instruction) >= 20:
+         chat.instruction = text
+         chat.save()
+         message = "AI小幫手無法記住這麼多內容,現在的聊天內容將重新開始"
+         sendWhatsAppMessage(fromId, message)
+         message = startPrompt(chat.instruction)
+         sendWhatsAppMessage(fromId, message)
+    else:
+        chat.instruction = chat.instruction + text
+        chat.save()
+        message = startPrompt(chat.instruction)
+        sendWhatsAppMessage(fromId, message)
 
 
 
