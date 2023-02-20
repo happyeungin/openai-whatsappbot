@@ -55,10 +55,10 @@ def handleWhatsAppChat(fromId, profileName, phoneId, text):
         sendWhatsAppMessage(fromId, message)
 
     # chat.instruction = chat.instruction + text
-    if len(chat.instruction) >= 20:
+    if len(chat.instruction) >= 300:
          chat.instruction = text
          chat.save()
-         message = "講太多野我唔記得喇, 而家由頭開始啦!🤣 Too much info for me, Let's restart chat!"
+         message = "內容太多記唔哂, 而家由頭傾過喇!🤣 Too much info for me, Let's restart our chat!"
          sendWhatsAppMessage(fromId, message)
          message = startPrompt(chat.instruction)
          sendWhatsAppMessage(fromId, message)
