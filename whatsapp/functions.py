@@ -51,7 +51,7 @@ def handleWhatsAppChat(fromId, profileName, phoneId, text):
         profile=user_profile
         )
 
-        message = "歡迎來到知識大師, 隨便問我野啦!😃 Welcome to Master Q&A, Ask me anything!"
+        message = "隨便問我野啦!😃 Ask me anything!"
         sendWhatsAppMessage(fromId, message)
 
     # chat.instruction = chat.instruction + text

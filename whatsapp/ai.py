@@ -7,7 +7,7 @@ def startPrompt(instruction):
 
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt="Chat with me in the language of the context.# Context:{} #".format(instruction),
+        prompt="Reply in the language of the context.# Context:{} #".format(instruction),
         # prompt=instruction,
         temperature=0.7,
         max_tokens=100,
