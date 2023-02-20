@@ -54,7 +54,7 @@ def handleWhatsAppChat(fromId, profileName, phoneId, text):
         message = "Welcome to this answer bot😃. Please feel free to ask me any questions!"
         sendWhatsAppMessage(fromId, message)
 
-    chat.instruction = chat.instruction + text
+    chat.instruction = text
     chat.save()
     message = startPrompt(chat.instruction)
     sendWhatsAppMessage(fromId, message)

@@ -7,16 +7,17 @@ def startPrompt(instruction):
 
     response = openai.Completion.create(
         model="text-davinci-003",
-        # prompt="{}".format(instruction),
-        prompt=instruction,
+        prompt="Reply in a funny sentence.# Context:{} #".format(instruction),
+        # prompt=instruction,
         temperature=0.7,
-        max_tokens=300,
+        max_tokens=100,
         n=1
     )
 
     if 'choices' in response:
         if len(response['choices'])>=0:
             answer = response['choices'][0]['text']
+            # answer.replace('\n', '<br/>')
             return answer
         else:
             return ''
