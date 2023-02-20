@@ -10,7 +10,7 @@ def startPrompt(instruction):
         # prompt="Reply in the context language(maximum 200 characters)# Context:{} #".format(instruction),
         prompt=instruction,
         temperature=0.7,
-        max_tokens=500,
+        max_tokens=512,
         n=1
     )
 
