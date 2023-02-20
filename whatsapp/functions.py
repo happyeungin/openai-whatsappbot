@@ -34,7 +34,6 @@ def handleWhatsAppChat(fromId, profileName, phoneId, text):
         ##Creating a user
             user = User.objects.create_user(
             username=phoneId,
-            email="123123@gmail.com",
             password="wowowow",
             first_name=profileName,
             )
@@ -47,9 +46,7 @@ def handleWhatsAppChat(fromId, profileName, phoneId, text):
             )
 
         #Create a chat session
-        chat = InstructionContext.objects.create(
-        profile=user_profile
-        )
+        chat = InstructionContext.objects.create(profile=user_profile)
 
         message = "隨便問我野啦!😃 Ask me anything!"
         sendWhatsAppMessage(fromId, message)
