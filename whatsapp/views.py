@@ -30,7 +30,7 @@ def whatsAppWebhook(request):
         if 'object' in data and 'entry' in data:
             if data['object'] == 'whatsapp_business_account':
                 for entry in data['entry']:
-                    phoneId = entry['changes'][0]['value']['metadata']['phone_number_id']
+                    # phoneId = entry['changes'][0]['value']['metadata']['phone_number_id']
                     profileName = entry['changes'][0]['value']['contacts'][0]['profile']['name']
                     whatsAppId = entry['changes'][0]['value']['contacts'][0]['wa_id']
                     fromId = entry['changes'][0]['value']['messages'][0]['from']
@@ -38,7 +38,7 @@ def whatsAppWebhook(request):
 
                     # message = 'RE:{} was received'.format(text)
                     # sendWhatsAppMessage(fromId, message)
-                    handleWhatsAppChat(fromId, profileName, phoneId, text)
+                    handleWhatsAppChat(fromId, profileName, text)
 
             else:
                 pass

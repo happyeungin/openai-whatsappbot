@@ -22,18 +22,18 @@ def sendWhatsAppMessage(phoneNumber, message):
 # message = "Hello There!!!!!!"
 
 # sendWhatsAppMessage(phoneNumber, message)
-def handleWhatsAppChat(fromId, profileName, phoneId, text):
+def handleWhatsAppChat(fromId, profileName, text):
     try:
         chat = InstructionContext.objects.get(profile__phoneNumber=fromId)
     except:
-        if User.objects.filter(username=phoneId).exists():
-            user = User.objects.get(username=phoneId)
+        if User.objects.filter(username=fromId).exists():
+            user = User.objects.get(username=fromId)
             user_profile = user.profile
 
         else:        
         ##Creating a user
             user = User.objects.create_user(
-            username=phoneId,
+            username=fromId,
             password="wowowow",
             first_name=profileName,
             )
@@ -42,7 +42,7 @@ def handleWhatsAppChat(fromId, profileName, phoneId, text):
             user_profile = Profile.objects.create(
             user=user,
             phoneNumber=fromId,
-            phoneId=phoneId
+            # phoneId=phoneId
             )
 
         #Create a chat session
