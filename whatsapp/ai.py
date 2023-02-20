@@ -6,11 +6,11 @@ openai.api_key = settings.OPENAI_API_KEY
 def startPrompt(instruction):
 
     response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt="Reply(maximum 200 characters) in the language of the context.# Context:{} #".format(instruction),
+        model="text-curie-001",
+        prompt="Reply(maximum 300 characters) in the language of the context.# Context:{} #".format(instruction),
         # prompt=instruction,
         temperature=0.7,
-        max_tokens=300,
+        max_tokens=600,
         n=1
     )
 
