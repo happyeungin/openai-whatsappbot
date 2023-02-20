@@ -63,7 +63,7 @@ def handleWhatsAppChat(fromId, profileName, phoneId, text):
          message = startPrompt(chat.instruction)
          sendWhatsAppMessage(fromId, message)
     else:
-        chat.instruction = chat.instruction + text
+        chat.instruction = chat.instruction + "\n" + text
         chat.save()
         message = startPrompt(chat.instruction)
         sendWhatsAppMessage(fromId, message)
