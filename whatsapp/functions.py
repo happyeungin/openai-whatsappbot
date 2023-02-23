@@ -53,6 +53,8 @@ def handleWhatsAppChat(fromId, profileName, text):
 
     chat.instruction = text
     chat.save()
+    message = "_幫緊你x2...__Getting the ans for you._"
+    sendWhatsAppMessage(fromId, message)
     message = startPrompt(chat.instruction)
     sendWhatsAppMessage(fromId, message)
 
