@@ -136,8 +136,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Test Number
+# WHATSAPP_URL = 'https://graph.facebook.com/v15.0/115329878106810/messages'
 
-WHATSAPP_URL = 'https://graph.facebook.com/v15.0/115329878106810/messages'
+
+# Real Number
+WHATSAPP_URL = 'https://graph.facebook.com/v15.0/100308363005848/messages'
 
 WHATSAPP_TOKEN = 'Bearer EAAGZBQW1W3U8BAJPtZCJcuBKizyimgBzsHXyp4k8lCaz0pcJcDgxsO9VWgLM0J2kln5ZBCa27bPqC1YUZAbCPumrZCj6LFOJQg9URfPKBcZBKNx7rfte79GjPDzP63gLl4PZCLnLqkTpRZAOWEm8SWBWmIpiyDik54ljk3uDzbKjoq8P3ws1mwykw3yhbj61k9Iqx9zLrcae2wZDZD'
 
