@@ -61,7 +61,8 @@ def handleWhatsAppChat(fromId, profileName, text):
         sendWhatsAppMessage(fromId, message)
     
     else:
-        pass
+        chat.instruction = text
+        chat.save()
 
     # if len(chat.instruction) >= 300:
     #      chat.instruction = text
