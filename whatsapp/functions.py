@@ -48,7 +48,9 @@ def handleWhatsAppChat(fromId, profileName, text):
         #Create a chat session
         chat = InstructionContext.objects.create(profile=user_profile)
 
-        message = "```隨便問我野啦!😃 Ask me anything!```"
+        message = "```Hello 歡迎使用毛神神 AI!😃 Welcome to Moesonson AI```"
+        sendWhatsAppMessage(fromId, message)
+        message = "```你可以問我問題, 或者叫我寫野架! Ask me anything or tell me to write something```"
         sendWhatsAppMessage(fromId, message)
 
     if chat.instruction != None:
