@@ -48,15 +48,20 @@ def handleWhatsAppChat(fromId, profileName, text):
         #Create a chat session
         chat = InstructionContext.objects.create(profile=user_profile)
 
-        message = "隨便問我野啦!😃 Ask me anything!"
+        message = "```隨便問我野啦!😃 Ask me anything!```"
         sendWhatsAppMessage(fromId, message)
 
-    chat.instruction = text
-    chat.save()
-    message = "```幫緊你幫緊你...One second```😺🐶"
-    sendWhatsAppMessage(fromId, message)
-    message = startPrompt(chat.instruction)
-    sendWhatsAppMessage(fromId, message)
+    if chat.instruction != None:
+
+        chat.instruction = text
+        chat.save()
+        message = "```幫緊你幫緊你...One second```😺🐶"
+        sendWhatsAppMessage(fromId, message)
+        message = startPrompt(chat.instruction)
+        sendWhatsAppMessage(fromId, message)
+    
+    else:
+        pass
 
     # if len(chat.instruction) >= 300:
     #      chat.instruction = text
