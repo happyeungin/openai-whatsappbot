@@ -35,6 +35,8 @@ def whatsAppWebhook(request):
                     text = entry['changes'][0]['value']['messages'][0]['text']['body']
 
                     if User.objects.filter(username=fromId).exists():
+                        user = User.objects.get(username=fromId)
+                        user.first_name=profileName,
                         pass
                     else:
                         profileName = entry['changes'][0]['value']['contacts'][0]['profile']['name']
