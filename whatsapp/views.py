@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, HttpResponse
 from .functions import *
@@ -31,10 +31,14 @@ def whatsAppWebhook(request):
             if data['object'] == 'whatsapp_business_account':
                 for entry in data['entry']:
                     # phoneId = entry['changes'][0]['value']['metadata']['phone_number_id']
-                    profileName = entry['changes'][0]['value']['contacts'][0]['profile']['name']
-                    whatsAppId = entry['changes'][0]['value']['contacts'][0]['wa_id']
                     fromId = entry['changes'][0]['value']['messages'][0]['from']
                     text = entry['changes'][0]['value']['messages'][0]['text']['body']
+
+                    if User.objects.filter(username=fromId).exists():
+                        pass
+                    else:
+                        profileName = entry['changes'][0]['value']['contacts'][0]['profile']['name']
+                        # whatsAppId = entry['changes'][0]['value']['contacts'][0]['wa_id']
 
                     # message = 'RE:{} was received'.format(text)
                     # sendWhatsAppMessage(fromId, message)
