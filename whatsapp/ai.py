@@ -19,7 +19,7 @@ def startPrompt(instruction):
     messages=[
         {
             "role": "user", 
-            "content":instruction,
+            "content": f"{instruction}",
         }
         ],
     temperature=0.7,
