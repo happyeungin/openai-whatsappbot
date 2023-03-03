@@ -15,16 +15,15 @@ def startPrompt(instruction):
     # )
 
     response = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=[
-        {
-            "role": "user", 
-            "content": f"{instruction}",
-        }
+        model="gpt-3.5-turbo",
+        messages=[
+            {
+                "role": "user", "content": instruction + "\n",
+            }
         ],
-    temperature=0.7,
-    max_tokens=512,
-    n=1
+        temperature=0.7,
+        max_tokens=512,
+        n=1
     )
 
 
