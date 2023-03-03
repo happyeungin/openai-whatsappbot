@@ -16,7 +16,7 @@ def startPrompt(instruction):
 
     response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
-    message=[
+    messages=[
         {
             "role": "user", 
             "content":instruction,
