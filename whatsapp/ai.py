@@ -22,7 +22,7 @@ def startPrompt(instruction):
             }
         ],
         temperature=0.7,
-        max_tokens=512,
+        max_tokens=1024,
         n=1
     )
 
