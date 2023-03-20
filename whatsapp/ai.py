@@ -18,7 +18,7 @@ def startPrompt(instruction):
         model="gpt-3.5-turbo",
         messages=[
             {
-                "role": "user", "content": instruction + "\n",
+                "role": "user", "content": instruction,
             }
         ],
         temperature=0.7,
